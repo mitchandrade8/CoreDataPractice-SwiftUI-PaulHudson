@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+struct Student: Hashable {
+    let name: String
+}
+
 struct WhyDoes__selfWorkForEach: View {
+    let students = [Student(name: "Harry Potter"), Student(name: "Hermione Granger")]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(students, id: \.self) { student in
+            Text(student.name)
+        }
     }
 }
 
